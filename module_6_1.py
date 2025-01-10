@@ -1,9 +1,19 @@
 class Animal:
-
     def __init__(self, name1):
         self.name1 = name1
         self.alive = True
         self.fed = False
+
+    def eat(self, food):
+        if isinstance(food, Plant):
+            if food.edible:
+                print(f"{self.name1} съел {food.name}")
+                self.fed = True
+            else:
+                print(f"{self.name1} не стал есть {food.name}")
+                self.alive = False
+        else:
+            print(f"{self.name1} не может съесть {food.name}")
 
 
 class Plant:
@@ -13,31 +23,11 @@ class Plant:
 
 
 class Mammal(Animal):
-
-    def eat(self, food):
-        if isinstance(food, Plant):
-            if food.edible:
-                print(f"{self.name1} съел {food.name}")
-                self.fed = True
-            else:
-                print(f"{self.name1} не стал есть {food.name}")
-                self.alive = False
-        else:
-            print(f"{self.name1} не может съесть {food.name}")
+    pass  # Здесь можно добавить другие методы или атрибуты, специфичные для млекопитающих
 
 
 class Predator(Animal):
-
-    def eat(self, food):
-        if isinstance(food, Plant):
-            if food.edible:
-                print(f"{self.name1} съел {food.name}")
-                self.fed = True
-            else:
-                print(f"{self.name1} не стал есть {food.name}")
-                self.alive = False
-        else:
-            print(f"{self.name1} не может съесть {food.name}")
+    pass  # Здесь можно добавить другие методы или атрибуты, специфичные для хищников
 
 
 class Flower(Plant):
